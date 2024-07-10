@@ -6,7 +6,7 @@ services:
     container_name: db
     restart: unless-stopped
     ports:
-      - "${DB_EXPOSED_PORT:-6033}:3306"
+      - "6033:3306"
     environment:
       - MYSQL_DATABASE=wordpress
       - MYSQL_USER=wp_user
@@ -14,8 +14,6 @@ services:
       - MYSQL_ROOT_PASSWORD=root_pass
     volumes:
       - dbdata:/var/lib/mysql
-    command:
-      - "--mysql-native-password=ON"
     networks:
       - app-network
 
